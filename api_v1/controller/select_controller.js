@@ -16,7 +16,7 @@ exports.select_query_json1 = function(err, result) {
   exports.select_query_json = (data,callback) => {
     //var task = new Task1(req.body);
     //console.log(data.req);
-    var fundata=[];
+    var fundata={};
      Task1.select_query(data,function(err, result) {  
       //console.log('controller');
       if (err){ 

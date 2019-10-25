@@ -7,8 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express'  });
 });
 router.post('/data', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  
   error = {
     status:"404",
     stack:"Try to access invalid resources"
@@ -27,7 +26,7 @@ router.post('/data', function(req, res, next) {
         QueryData = {
           "qry1":result
         }
-        var cou = Object.keys(QueryData).length;
+        var cou = Object.keys(QueryData.qry1).length;
         //res.send( 'Query Count :' + cou);
         if(cou > 0){
           res.send(  QueryData);
