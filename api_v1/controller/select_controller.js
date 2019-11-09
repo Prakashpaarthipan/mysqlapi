@@ -31,7 +31,7 @@ exports.select_query_json1 = function(err, result) {
     
       var data= "select * from task";
       Task1.select_query(data,function(err,result){
-        if(err){       
+        if(err){
           console.log("Error");
         }else{
           fundata.task=result;
