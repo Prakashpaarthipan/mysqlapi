@@ -1,0 +1,16 @@
+{
+  "name": "nodeimage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "capture-website": "^0.8.0",
+    "node-server-screenshot": "^0.2.3",
+    "puppeteer": "^2.0.0"
+  }
+}
