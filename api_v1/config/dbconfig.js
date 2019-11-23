@@ -1,5 +1,12 @@
 var mysql=require('mysql');
-var dbcon=mysql.createConnection({ 
+var db_config = {
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'nodeapi'
+};
+var dbcon;
+dbcon=mysql.createConnection({ 
  host:'localhost',
  user:'root',
  password:'',
@@ -8,10 +15,40 @@ var dbcon=mysql.createConnection({
 });
 dbcon.connect(function(err) {
     if (err) {
+        handleDisconnect();
         return console.error('error: ' + err.message + ' [ Mysql Server May be Offline ]');
+        
       }
 });
  module.exports=dbcon;
+
+ function handleDisconnect() {
+  dbcon=mysql.createConnection({ 
+    host:'localhost',
+    user:'root',
+    password:'',
+    database:'nodeapi'
+    
+   });
+    dbcon.connect(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err.code);
+       //
+    }                                    
+
+    if(err.code === 'ECONNREFUSED'){
+      console.log("Reconnecting...");
+      //handleDisconnect();  
+      setTimeout(handleDisconnect, 5000); 
+    } 
+    else{
+      clearTimeout();
+    } 
+
+  });                               
+   
+}
+ 
 
 exports.dbClose= ()=>{
     dbcon.end(function(err) {
