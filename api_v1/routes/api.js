@@ -25,6 +25,8 @@ if(reqid !='' || 1==1 ){
    async function createNew()
     {
         try{
+            console.log('debugger');
+            
             var today = new Date();
             var time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
             var Filename = reqid+"_"+year+"_"+time+"_AP.pdf";
