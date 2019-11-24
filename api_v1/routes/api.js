@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
  var creid = req.body.creid;
  var typeid = req.body.typeid;
  var dataMatch=1;
-if(reqid =='8988'){
+if(reqid !=''){
    //res.writeHead(200);
    async function createNew(err,result)
     {
